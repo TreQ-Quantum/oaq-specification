@@ -1,0 +1,8 @@
+@startuml
+package "TreQ.TIL.Instructions" {
+    class SetFramePhase  {
+        + Frame : Frame 
+        + Phase : Angle 
+    }
+}
+@enduml

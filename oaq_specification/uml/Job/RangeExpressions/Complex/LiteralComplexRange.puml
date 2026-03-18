@@ -1,0 +1,7 @@
+@startuml
+package "TreQ.TIL.RangeExpressions.Complex" {
+    class LiteralComplexRange  {
+        + Values : BaseTypes.Complex[] 
+    }
+}
+@enduml

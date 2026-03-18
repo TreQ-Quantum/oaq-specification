@@ -1,0 +1,8 @@
+@startuml
+package "TreQ.TIL.Instructions" {
+    enum PhaseReferencePoints {
+        T0IsJobStart,
+        T0IsNow,
+    }
+}
+@enduml

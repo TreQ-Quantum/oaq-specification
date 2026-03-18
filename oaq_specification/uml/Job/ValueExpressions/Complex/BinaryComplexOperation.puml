@@ -1,0 +1,9 @@
+@startuml
+package "TreQ.TIL.ValueExpressions.Complex" {
+    class BinaryComplexOperation  {
+        + Operator : BinaryComplexOperators 
+        + Lhs : ComplexExpression 
+        + Rhs : ComplexExpression 
+    }
+}
+@enduml

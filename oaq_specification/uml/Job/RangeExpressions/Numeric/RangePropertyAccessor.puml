@@ -1,0 +1,8 @@
+@startuml
+package "TreQ.TIL.RangeExpressions.Numeric" {
+    class NumericRangeElement  {
+        + Source : NumericRangeExpression 
+        + Index : NumericExpression 
+    }
+}
+@enduml

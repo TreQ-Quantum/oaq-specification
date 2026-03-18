@@ -1,0 +1,8 @@
+@startuml
+package "TreQ.TIL.ValueExpressions.Boolean" {
+    enum ComparisonOperators {
+        LessThan,
+        GreaterThan,
+    }
+}
+@enduml

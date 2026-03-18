@@ -1,0 +1,9 @@
+@startuml
+package "TreQ.TIL.Functions" {
+    class NumericToBlockFunction  {
+        + Name : string? 
+        + Parameter : NumericParameter 
+        + Body : Block 
+    }
+}
+@enduml

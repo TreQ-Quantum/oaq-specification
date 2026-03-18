@@ -1,0 +1,9 @@
+@startuml
+package "TreQ.TIL.ValueExpressions.Numeric" {
+    class BinaryNumericOperation  {
+        + Operator : BinaryNumericOperators 
+        + Lhs : NumericExpression 
+        + Rhs : NumericExpression 
+    }
+}
+@enduml

@@ -1,0 +1,9 @@
+@startuml
+package "TreQ.TIL.Timing" {
+    class Dependency  {
+        + Relationship : InstructionRelationship 
+        + Lhs : Instruction 
+        + Rhs : Instruction 
+    }
+}
+@enduml

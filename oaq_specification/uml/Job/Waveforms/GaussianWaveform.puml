@@ -1,0 +1,8 @@
+@startuml
+package "TreQ.TIL.Waveforms" {
+    class GaussianWaveform  {
+        + Duration : Interval 
+        + Sigma : Interval 
+    }
+}
+@enduml

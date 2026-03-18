@@ -1,0 +1,10 @@
+@startuml
+package "TreQ.TIL.ValueExpressions.Complex" {
+    class ComplexRealValue  {
+        + Operand : ComplexExpression 
+    }
+    class ComplexImaginaryValue  {
+        + Operand : ComplexExpression 
+    }
+}
+@enduml

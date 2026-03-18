@@ -1,0 +1,9 @@
+@startuml
+package "TreQ.TIL.ValueExpressions.Boolean" {
+    class BooleanConditional  {
+        + Guard : BooleanExpression 
+        + TrueCase : BooleanExpression 
+        + FalseCase : BooleanExpression 
+    }
+}
+@enduml

@@ -1,0 +1,7 @@
+@startuml
+package "TreQ.TIL.ValueExpressions.Numeric" {
+    class NumericLiteral  {
+        + Value : double 
+    }
+}
+@enduml

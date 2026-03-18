@@ -1,0 +1,6 @@
+@startuml
+!include ./Results.puml
+JobResults::BooleanRangeResults --> RegisterResult
+JobResults::NumericRangeResults --> RegisterResult
+JobResults::ComplexRangeResults --> RegisterResult
+@enduml

@@ -1,0 +1,9 @@
+@startuml
+package "TreQ.TIL.RangeExpressions.Numeric" {
+    class ForEachNumeric  {
+        + Source : NumericRangeExpression 
+        + Relationship : InstructionRelationship 
+        + Body : NumericToBlockFunction 
+    }
+}
+@enduml

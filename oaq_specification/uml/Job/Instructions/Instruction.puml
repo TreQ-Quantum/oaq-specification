@@ -1,0 +1,6 @@
+@startuml
+package "TreQ.TIL.Instructions" {
+    abstract class Instruction  {
+    }
+}
+@enduml

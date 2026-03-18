@@ -1,0 +1,7 @@
+@startuml
+package "TreQ.TIL.Instructions" {
+    class Delay  {
+        + Duration : Interval 
+    }
+}
+@enduml

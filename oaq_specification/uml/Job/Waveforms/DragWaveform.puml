@@ -1,0 +1,8 @@
+@startuml
+package "TreQ.TIL.Waveforms" {
+    class DragWaveform  {
+        + Base : Waveform 
+        + DragParameter : Interval 
+    }
+}
+@enduml

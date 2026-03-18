@@ -1,0 +1,6 @@
+@startuml
+package "TreQ.TIL.RangeExpressions.Complex" {
+    class ComplexRangeRegister  {
+    }
+}
+@enduml

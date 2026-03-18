@@ -1,0 +1,13 @@
+@startuml
+package "TreQ.TIL.Results" {
+    class RegisterResult<T>  {
+        + Name : string 
+        + Value : T 
+    }
+    class JobResults  {
+        + BooleanRangeResults : RegisterResult<bool[]>[] 
+        + NumericRangeResults : RegisterResult<double[]>[] 
+        + ComplexRangeResults : RegisterResult<Complex[]>[] 
+    }
+}
+@enduml

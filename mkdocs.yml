@@ -1,0 +1,82 @@
+site_name: OAQ Specification
+site_description: Open Architecture Quantum specification for low-level quantum jobs
+repo_url: https://github.com/TreQ-Quantum/oaq-specification
+repo_name: TreQ-Quantum/oaq-specification
+
+docs_dir: oaq_specification
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - search.highlight
+    - content.code.copy
+    - content.action.view
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+
+nav:
+  - Home: index.md
+  - Getting Started:
+      - Overview: docs/README.md
+      - Class Diagram: docs/class_diagram.md
+  - Examples:
+      - Index: examples/README.md
+      - Simple Programs: examples/1_simple_programs.md
+      - Dependencies: examples/2_dependencies.md
+      - Readout: examples/3_readout.md
+      - Time-Rabi: examples/4_time_rabi.md
+      - Multiple Roots: examples/5_multiple_roots.md
+      - Resonator Spectroscopy: examples/6_resonator_spectroscopy.md
+      - Output Filters: examples/7_output_filters.md
+      - Active Reset: examples/8_active_reset.md
+      - Multiplexed Readout: examples/9_multiplexed_readout.md
+      - Independent Sweep Parameters: examples/10_sweeping_independent_parameters.md
+  - Reference:
+      - Base Types: docs/base_types.md
+      - Job: docs/job.md
+      - Block: docs/block.md
+      - Channels: docs/channels.md
+      - Drive Instructions: docs/drive_instructions.md
+      - Acquisition Instructions: docs/acquisition_instructions.md
+      - Timing: docs/timing.md
+      - Waveforms: docs/waveforms.md
+      - Types: docs/types.md
+      - Expressions: docs/expressions.md
+      - Ranges: docs/ranges.md
+      - Functions: docs/functions.md
+  - Serialization:
+      - Job Format: docs/job_serialization.md
+      - Results Format: docs/results_serialization.md
+      - Exceptions: docs/exceptions.md

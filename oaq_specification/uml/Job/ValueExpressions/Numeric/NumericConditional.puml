@@ -1,0 +1,9 @@
+@startuml
+package "TreQ.TIL.ValueExpressions.Numeric" {
+    class NumericConditional  {
+        + Guard : BooleanExpression 
+        + TrueCase : NumericExpression 
+        + FalseCase : NumericExpression 
+    }
+}
+@enduml

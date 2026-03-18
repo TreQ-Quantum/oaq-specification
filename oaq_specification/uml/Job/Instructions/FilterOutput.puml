@@ -1,0 +1,10 @@
+@startuml
+package "TreQ.TIL.Instructions" {
+    class FilterOutput  {
+        + Port : Port 
+        + Scope : Block 
+        + IirFilters : IirFilter[] 
+        + FirFilter : FirFilter 
+    }
+}
+@enduml

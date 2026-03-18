@@ -1,0 +1,9 @@
+@startuml
+package "TreQ.TIL.Timing" {
+    class InstructionRelationship  {
+        + Alignment : Alignment 
+        + MinOffset : Interval? 
+        + MaxOffset : Interval? 
+    }
+}
+@enduml

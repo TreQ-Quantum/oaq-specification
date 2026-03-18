@@ -1,0 +1,18 @@
+graph TD
+    NumericExpression1["100"]
+    Port1["Port"]
+    Port1 -- "Id" --- NumericExpression1
+    Interval1["50 ns"]
+    Interval2["10 ns"]
+    Waveform1["GaussianWaveform"]
+    Waveform1 -- "Duration" --- Interval1
+    Waveform1 -- "Sigma" --- Interval2
+    NumericExpression2["0.5"]
+    Amplitude3["Amplitude"]
+    Amplitude3 -- "Value" --- NumericExpression2
+    Instruction1["UnmodulatedPulse"]
+    Instruction1 -- "Port" --- Port1
+    Instruction1 -- "Envelope" --- Waveform1
+    Instruction1 -- "Amplitude" --- Amplitude3
+    Job["Job"]
+    Job -- "EntryPoint1" --- Instruction1

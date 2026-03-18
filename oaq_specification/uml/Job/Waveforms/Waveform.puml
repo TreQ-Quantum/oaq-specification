@@ -1,0 +1,6 @@
+@startuml
+package "TreQ.TIL.Waveforms" {
+    abstract class Waveform  {
+    }
+}
+@enduml

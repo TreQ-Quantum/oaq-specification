@@ -1,0 +1,8 @@
+@startuml
+package "TreQ.TIL.BaseTypes" {
+    class Complex  {
+        + Real : double 
+        + Imaginary : double 
+    }
+}
+@enduml

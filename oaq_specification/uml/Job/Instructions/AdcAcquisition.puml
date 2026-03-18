@@ -1,0 +1,9 @@
+@startuml
+package "TreQ.TIL.Instructions" {
+    class AdcAcquisition  {
+        + Port : Port 
+        + Duration : Interval 
+        + Result : AcquisitionComplexRangeResult 
+    }
+}
+@enduml

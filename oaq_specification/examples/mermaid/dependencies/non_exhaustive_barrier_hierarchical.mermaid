@@ -1,0 +1,95 @@
+graph TD
+    Frame1["Frame"]
+    Interval1["100 ns"]
+    Waveform1["ConstantWaveform"]
+    Waveform1 -- "Duration" --- Interval1
+    Instruction3["ModulatedPulse"]
+    Instruction3 -- "Frame" --- Frame1
+    Instruction3 -- "Envelope" --- Waveform1
+    Radians2["1 rad"]
+    Instruction3 -- "PhaseOffset" --- Radians2
+    Frame2["Frame"]
+    Interval3["150 ns"]
+    Waveform2["ConstantWaveform"]
+    Waveform2 -- "Duration" --- Interval3
+    Instruction4["ModulatedPulse"]
+    Instruction4 -- "Frame" --- Frame2
+    Instruction4 -- "Envelope" --- Waveform2
+    Radians4["2 rad"]
+    Instruction4 -- "PhaseOffset" --- Radians4
+    Instruction5:Alignment["StartToStart"]
+    Instruction5:Relationship["InstructionRelationship"]
+    Instruction5:Relationship -- "Alignment" --- Instruction5:Alignment
+    Instruction5["Dependency"]
+    Instruction5 -- "Relationship" --- Instruction5:Relationship
+    Instruction5 -- "Lhs" --- Instruction3
+    Instruction5 -- "Rhs" --- Instruction4
+    Instruction7["ModulatedPulse"]
+    Instruction7 -- "Frame" --- Frame1
+    Instruction7 -- "Envelope" --- Waveform1
+    Radians5["1 rad"]
+    Instruction7 -- "PhaseOffset" --- Radians5
+    Instruction8["ModulatedPulse"]
+    Instruction8 -- "Frame" --- Frame2
+    Instruction8 -- "Envelope" --- Waveform2
+    Radians6["2 rad"]
+    Instruction8 -- "PhaseOffset" --- Radians6
+    Instruction9:Alignment["StartToStart"]
+    Instruction9:Relationship["InstructionRelationship"]
+    Instruction9:Relationship -- "Alignment" --- Instruction9:Alignment
+    Instruction9["Dependency"]
+    Instruction9 -- "Relationship" --- Instruction9:Relationship
+    Instruction9 -- "Lhs" --- Instruction7
+    Instruction9 -- "Rhs" --- Instruction8
+    Instruction10:Alignment["EndToStart"]
+    Instruction10:Relationship["InstructionRelationship"]
+    Instruction10:Relationship -- "Alignment" --- Instruction10:Alignment
+    Instruction10["Dependency"]
+    Instruction10 -- "Relationship" --- Instruction10:Relationship
+    Instruction10 -- "Lhs" --- Instruction5
+    Instruction10 -- "Rhs" --- Instruction9
+    Instruction13["ModulatedPulse"]
+    Instruction13 -- "Frame" --- Frame1
+    Instruction13 -- "Envelope" --- Waveform1
+    Radians7["1 rad"]
+    Instruction13 -- "PhaseOffset" --- Radians7
+    Frame3["Frame"]
+    Interval8["50 ns"]
+    Waveform3["ConstantWaveform"]
+    Waveform3 -- "Duration" --- Interval8
+    Instruction14["ModulatedPulse"]
+    Instruction14 -- "Frame" --- Frame3
+    Instruction14 -- "Envelope" --- Waveform3
+    Radians9["3 rad"]
+    Instruction14 -- "PhaseOffset" --- Radians9
+    Instruction15:Alignment["StartToStart"]
+    Instruction15:Relationship["InstructionRelationship"]
+    Instruction15:Relationship -- "Alignment" --- Instruction15:Alignment
+    Instruction15["Dependency"]
+    Instruction15 -- "Relationship" --- Instruction15:Relationship
+    Instruction15 -- "Lhs" --- Instruction13
+    Instruction15 -- "Rhs" --- Instruction14
+    Instruction17["ModulatedPulse"]
+    Instruction17 -- "Frame" --- Frame1
+    Instruction17 -- "Envelope" --- Waveform1
+    Radians10["1 rad"]
+    Instruction17 -- "PhaseOffset" --- Radians10
+    Instruction18["ModulatedPulse"]
+    Instruction18 -- "Frame" --- Frame3
+    Instruction18 -- "Envelope" --- Waveform3
+    Radians11["3 rad"]
+    Instruction18 -- "PhaseOffset" --- Radians11
+    Instruction19:Alignment["StartToStart"]
+    Instruction19:Relationship["InstructionRelationship"]
+    Instruction19:Relationship -- "Alignment" --- Instruction19:Alignment
+    Instruction19["Dependency"]
+    Instruction19 -- "Relationship" --- Instruction19:Relationship
+    Instruction19 -- "Lhs" --- Instruction17
+    Instruction19 -- "Rhs" --- Instruction18
+    Instruction20:Alignment["EndToStart"]
+    Instruction20:Relationship["InstructionRelationship"]
+    Instruction20:Relationship -- "Alignment" --- Instruction20:Alignment
+    Instruction20["Dependency"]
+    Instruction20 -- "Relationship" --- Instruction20:Relationship
+    Instruction20 -- "Lhs" --- Instruction15
+    Instruction20 -- "Rhs" --- Instruction19

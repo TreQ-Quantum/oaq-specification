@@ -1,0 +1,8 @@
+@startuml
+package "TreQ.TIL.Instructions" {
+    class DcBias  {
+        + Port : Port 
+        + Amplitude : Amplitude 
+    }
+}
+@enduml

@@ -1,0 +1,8 @@
+@startuml
+package "TreQ.TIL.RangeExpressions.Boolean" {
+    class BooleanRangeElement  {
+        + Source : BooleanRangeExpression 
+        + Index : NumericExpression 
+    }
+}
+@enduml

@@ -1,0 +1,30 @@
+{
+    "version": "0.1.0",
+    "compatible_version": "0.1.0",
+    "entry_point": [
+        {
+            "$type": "UnmodulatedPulse",
+            "port": {
+                "id": {
+                    "$type": "NumericLiteral",
+                    "value": 100
+                }
+            },
+            "envelope": {
+                "$type": "GaussianWaveform",
+                "duration": {
+                    "$type": "NumericLiteral",
+                    "value": 5E-08
+                },
+                "sigma": {
+                    "$type": "NumericLiteral",
+                    "value": 1E-08
+                }
+            },
+            "amplitude": {
+                "$type": "NumericLiteral",
+                "value": 0.5
+            }
+        }
+    ]
+}

@@ -1,0 +1,9 @@
+@startuml
+package "TreQ.TIL.ValueExpressions.Complex" {
+    class ComplexConditional  {
+        + Guard : BooleanExpression 
+        + TrueCase : ComplexExpression 
+        + FalseCase : ComplexExpression 
+    }
+}
+@enduml

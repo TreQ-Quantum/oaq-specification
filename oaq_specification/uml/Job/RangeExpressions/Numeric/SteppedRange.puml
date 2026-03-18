@@ -1,0 +1,9 @@
+@startuml
+package "TreQ.TIL.RangeExpressions.Numeric" {
+    class SteppedRange  {
+        + InclusiveStart : NumericExpression 
+        + Step : NumericExpression 
+        + ExclusiveEnd : NumericExpression 
+    }
+}
+@enduml
