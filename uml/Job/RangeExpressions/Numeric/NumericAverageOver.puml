@@ -1,0 +1,9 @@
+@startuml
+package "TreQ.TIL.RangeExpressions.Numeric" {
+    class NumericAverageOver  {
+        + Source : NumericRangeExpression 
+        + BufferDimensions : int[] 
+        + AveragingAxis : int 
+    }
+}
+@enduml

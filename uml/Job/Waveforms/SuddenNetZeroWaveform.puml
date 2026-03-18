@@ -1,0 +1,10 @@
+@startuml
+package "TreQ.TIL.Waveforms" {
+    class SuddenNetZeroWaveform  {
+        + Duration : Interval 
+        + MidpointDelay : Interval 
+        + BAmplitude : Amplitude 
+        + BDuration : Interval 
+    }
+}
+@enduml

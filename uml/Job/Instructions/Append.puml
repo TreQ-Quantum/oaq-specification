@@ -1,0 +1,16 @@
+@startuml
+package "TreQ.TIL.Instructions" {
+    class BooleanAppend  {
+        + Input : BooleanExpression 
+        + Output : BooleanRangeRegister 
+    }
+    class NumericAppend  {
+        + Input : NumericExpression 
+        + Output : NumericRangeRegister 
+    }
+    class ComplexAppend  {
+        + Input : ComplexExpression 
+        + Output : ComplexRangeRegister 
+    }
+}
+@enduml

@@ -1,0 +1,8 @@
+@startuml
+package "TreQ.TIL.Waveforms" {
+    class PlateauWaveform  {
+        + Base : Waveform 
+        + PlateauDuration : Interval 
+    }
+}
+@enduml

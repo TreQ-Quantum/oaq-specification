@@ -1,0 +1,44 @@
+{
+    "version": "0.1.0",
+    "compatible_version": "0.1.0",
+    "entry_point": [
+        {
+            "$type": "ModulatedPulse",
+            "frame": {
+                "port": {
+                    "id": {
+                        "$type": "NumericLiteral",
+                        "value": 100
+                    }
+                },
+                "frequency": {
+                    "$type": "NumericLiteral",
+                    "value": 5000000000
+                },
+                "phase": {
+                    "$type": "NumericLiteral",
+                    "value": 0
+                },
+                "intermediate_frequency": {
+                    "$type": "NumericLiteral",
+                    "value": 10000000
+                }
+            },
+            "envelope": {
+                "$type": "ConstantWaveform",
+                "duration": {
+                    "$type": "NumericLiteral",
+                    "value": 1E-07
+                }
+            },
+            "phase_offset": {
+                "$type": "NumericLiteral",
+                "value": 0
+            },
+            "amplitude": {
+                "$type": "NumericLiteral",
+                "value": 0.5
+            }
+        }
+    ]
+}

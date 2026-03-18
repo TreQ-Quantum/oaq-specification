@@ -1,0 +1,24 @@
+graph TD
+    NumericExpression1["100"]
+    Port1["Port"]
+    Port1 -- "Id" --- NumericExpression1
+    Frequency1["5 GHz"]
+    Radians2["0 rad"]
+    Frequency3["10 MHz"]
+    Frame1["Frame"]
+    Frame1 -- "Port" --- Port1
+    Frame1 -- "Frequency" --- Frequency1
+    Frame1 -- "Phase" --- Radians2
+    Frame1 -- "IntermediateFrequency" --- Frequency3
+    Interval4["100 ns"]
+    Waveform1["ConstantWaveform"]
+    Waveform1 -- "Duration" --- Interval4
+    Instruction1["ModulatedPulse"]
+    Instruction1 -- "Frame" --- Frame1
+    Instruction1 -- "Envelope" --- Waveform1
+    NumericExpression2["0.5"]
+    Amplitude5["Amplitude"]
+    Amplitude5 -- "Value" --- NumericExpression2
+    Instruction1 -- "Amplitude" --- Amplitude5
+    Job["Job"]
+    Job -- "EntryPoint1" --- Instruction1

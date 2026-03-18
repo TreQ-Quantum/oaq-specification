@@ -1,0 +1,20 @@
+strict digraph "" {
+    node [label="\N"];
+    "NumericExpression1" [label="100", shape=box];
+    "Port1" [label="Port", shape=box];
+    "Port1" -> "NumericExpression1"  [label="Id", style=dashed];
+    "Interval1" [label="50 ns", shape=box];
+    "Interval2" [label="10 ns", shape=box];
+    "Waveform1" [label="GaussianWaveform", shape=box];
+    "Waveform1" -> "Interval1"  [label="Duration", style=dashed];
+    "Waveform1" -> "Interval2"  [label="Sigma", style=dashed];
+    "NumericExpression2" [label="0.5", shape=box];
+    "Amplitude3" [label="Amplitude", shape=box];
+    "Amplitude3" -> "NumericExpression2"  [label="Value", style=dashed];
+    "Instruction1" [label="UnmodulatedPulse", shape=box];
+    "Instruction1" -> "Port1"  [label="Port", style=dashed];
+    "Instruction1" -> "Waveform1"  [label="Envelope", style=dashed];
+    "Instruction1" -> "Amplitude3"  [label="Amplitude", style=dashed];
+    "Job" [label="Job", shape=box];
+    "Job" -> "Instruction1"  [label="EntryPoint1", style=dashed];
+}

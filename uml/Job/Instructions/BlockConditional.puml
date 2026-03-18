@@ -1,0 +1,9 @@
+@startuml
+package "TreQ.TIL.Instructions" {
+    class BlockConditional  {
+        + Guard : BooleanExpression 
+        + TrueCase : Block 
+        + FalseCase : Block 
+    }
+}
+@enduml

@@ -1,0 +1,12 @@
+@startuml
+package "TreQ.TIL.Waveforms" {
+    class SampledNumericWaveform  {
+        + SampleInterval : Interval 
+        + Samples : double[] 
+    }
+    class SampledComplexWaveform  {
+        + SampleInterval : Interval 
+        + Samples : Complex[] 
+    }
+}
+@enduml

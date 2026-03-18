@@ -1,0 +1,7 @@
+@startuml
+package "TreQ.TIL.Channels" {
+    class FirFilter  {
+        + Taps : LiteralNumericRange 
+    }
+}
+@enduml

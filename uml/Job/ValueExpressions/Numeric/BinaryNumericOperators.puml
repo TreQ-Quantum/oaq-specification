@@ -1,0 +1,9 @@
+@startuml
+package "TreQ.TIL.ValueExpressions.Numeric" {
+    enum BinaryNumericOperators {
+        Add,
+        Subtract,
+        Multiply,
+    }
+}
+@enduml

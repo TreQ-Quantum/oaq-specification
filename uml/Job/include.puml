@@ -1,0 +1,237 @@
+@startuml
+!pragma layout elk
+!include ./Job.puml
+!include ./Functions/NumericParameter.puml
+!include ./Functions/BlockFunctions.puml
+!include ./Timing/InstructionRelationship.puml
+!include ./Timing/Alignment.puml
+!include ./Timing/Dependency.puml
+!include ./Channels/Frame.puml
+!include ./Channels/IirFilter.puml
+!include ./Channels/FirFilter.puml
+!include ./Channels/Port.puml
+!include ./BaseTypes/Interval.puml
+!include ./BaseTypes/Complex.puml
+!include ./BaseTypes/Frequency.puml
+!include ./BaseTypes/Amplitude.puml
+!include ./BaseTypes/Angle.puml
+!include ./Waveforms/CosineWaveform.puml
+!include ./Waveforms/SampledWaveform.puml
+!include ./Waveforms/DragWaveform.puml
+!include ./Waveforms/SuddenNetZeroWaveform.puml
+!include ./Waveforms/GaussianWaveform.puml
+!include ./Waveforms/Waveform.puml
+!include ./Waveforms/ConstantWaveform.puml
+!include ./Waveforms/BlackmanWaveform.puml
+!include ./Waveforms/PlateauWaveform.puml
+!include ./Instructions/DetuneFrame.puml
+!include ./Instructions/Instruction.puml
+!include ./Instructions/BlockConditional.puml
+!include ./Instructions/AdcAcquisition.puml
+!include ./Instructions/UnmodulatedPulse.puml
+!include ./Instructions/SetFramePhase.puml
+!include ./Instructions/ModulatedPulse.puml
+!include ./Instructions/Append.puml
+!include ./Instructions/FilterOutput.puml
+!include ./Instructions/ShiftFramePhase.puml
+!include ./Instructions/Delay.puml
+!include ./Instructions/Assign.puml
+!include ./Instructions/PhaseReferencePoints.puml
+!include ./Instructions/Block.puml
+!include ./Instructions/DcBias.puml
+!include ./RangeExpressions/Complex/RangePropertyAccessor.puml
+!include ./RangeExpressions/Complex/LiteralComplexRange.puml
+!include ./RangeExpressions/Complex/ComplexRangeRegister.puml
+!include ./RangeExpressions/Complex/AcquisitionComplexRangeResult.puml
+!include ./RangeExpressions/Complex/ComplexAverageOver.puml
+!include ./RangeExpressions/Complex/ComplexRangeExpression.puml
+!include ./RangeExpressions/Complex/Demodulation.puml
+!include ./RangeExpressions/Numeric/NumericAverageOver.puml
+!include ./RangeExpressions/Numeric/RangePropertyAccessor.puml
+!include ./RangeExpressions/Numeric/NumericRangeExpression.puml
+!include ./RangeExpressions/Numeric/SteppedRange.puml
+!include ./RangeExpressions/Numeric/NumericRangeRegister.puml
+!include ./RangeExpressions/Numeric/ForEachNumeric.puml
+!include ./RangeExpressions/Numeric/LiteralNumericRange.puml
+!include ./RangeExpressions/Boolean/RangePropertyAccessor.puml
+!include ./RangeExpressions/Boolean/BooleanRangeRegister.puml
+!include ./RangeExpressions/Boolean/BooleanRangeExpression.puml
+!include ./ValueExpressions/Complex/ComplexPropertyAccessor.puml
+!include ./ValueExpressions/Complex/BinaryComplexOperators.puml
+!include ./ValueExpressions/Complex/ComplexExpression.puml
+!include ./ValueExpressions/Complex/BinaryComplexOperation.puml
+!include ./ValueExpressions/Complex/ComplexConditional.puml
+!include ./ValueExpressions/Complex/ComplexDotProduct.puml
+!include ./ValueExpressions/Numeric/BinaryNumericOperators.puml
+!include ./ValueExpressions/Numeric/NumericConditional.puml
+!include ./ValueExpressions/Numeric/NumericLiteral.puml
+!include ./ValueExpressions/Numeric/BinaryNumericOperation.puml
+!include ./ValueExpressions/Numeric/NumericExpression.puml
+!include ./ValueExpressions/Boolean/BooleanExpression.puml
+!include ./ValueExpressions/Boolean/BooleanConditional.puml
+!include ./ValueExpressions/Boolean/ComparisonOperators.puml
+!include ./ValueExpressions/Boolean/ComparisonOperation.puml
+Job::EntryPoint --> Block
+Job::BooleanRangeOutputs --> BooleanRangeRegister
+Job::NumericRangeOutputs --> NumericRangeRegister
+Job::ComplexRangeOutputs --> ComplexRangeRegister
+NumericExpression <|-- NumericParameter
+NumericToBlockFunction::Parameter --> NumericParameter
+NumericToBlockFunction::Body --> Block
+InstructionRelationship::Alignment --> Alignment
+InstructionRelationship::MinOffset --> Interval
+InstructionRelationship::MaxOffset --> Interval
+Instruction <|-- Dependency
+Dependency::Relationship --> InstructionRelationship
+Dependency::Lhs --> Instruction
+Dependency::Rhs --> Instruction
+Frame::Port --> Port
+Frame::Frequency --> Frequency
+Frame::Phase --> Angle
+Frame::IntermediateFrequency o-> Frequency
+IirFilter::Amplitude --> Amplitude
+IirFilter::TimeConstant --> Interval
+FirFilter::Taps --> LiteralNumericRange
+Port::Id --> NumericExpression
+Interval::Seconds --> NumericExpression
+Frequency::Hertz --> NumericExpression
+Amplitude::Value --> NumericExpression
+Angle::Radians --> NumericExpression
+Waveform <|-- CosineWaveform
+CosineWaveform::Duration --> Interval
+Waveform <|-- SampledNumericWaveform
+SampledNumericWaveform::SampleInterval --> Interval
+Waveform <|-- SampledComplexWaveform
+SampledComplexWaveform::SampleInterval --> Interval
+Waveform <|-- DragWaveform
+DragWaveform::Base --> Waveform
+DragWaveform::DragParameter --> Interval
+Waveform <|-- SuddenNetZeroWaveform
+SuddenNetZeroWaveform::Duration --> Interval
+SuddenNetZeroWaveform::MidpointDelay --> Interval
+SuddenNetZeroWaveform::BAmplitude --> Amplitude
+SuddenNetZeroWaveform::BDuration --> Interval
+Waveform <|-- GaussianWaveform
+GaussianWaveform::Duration --> Interval
+GaussianWaveform::Sigma --> Interval
+Waveform <|-- ConstantWaveform
+ConstantWaveform::Duration --> Interval
+Waveform <|-- BlackmanWaveform
+BlackmanWaveform::Duration --> Interval
+Waveform <|-- PlateauWaveform
+PlateauWaveform::Base --> Waveform
+PlateauWaveform::PlateauDuration --> Interval
+Instruction <|-- DetuneFrame
+DetuneFrame::Frame --> Frame
+DetuneFrame::Detuning --> Frequency
+DetuneFrame::Scope --> Block
+DetuneFrame::PhaseReference o-> PhaseReferencePoints
+Instruction <|-- BlockConditional
+BlockConditional::Guard --> BooleanExpression
+BlockConditional::TrueCase --> Block
+BlockConditional::FalseCase --> Block
+Instruction <|-- AdcAcquisition
+AdcAcquisition::Port --> Port
+AdcAcquisition::Duration --> Interval
+AdcAcquisition::Result --> AcquisitionComplexRangeResult
+Instruction <|-- UnmodulatedPulse
+UnmodulatedPulse::Port --> Port
+UnmodulatedPulse::Envelope --> Waveform
+UnmodulatedPulse::Amplitude --> Amplitude
+Instruction <|-- SetFramePhase
+SetFramePhase::Frame --> Frame
+SetFramePhase::Phase --> Angle
+Instruction <|-- ModulatedPulse
+ModulatedPulse::Frame --> Frame
+ModulatedPulse::Envelope --> Waveform
+ModulatedPulse::PhaseOffset --> Angle
+ModulatedPulse::Amplitude --> Amplitude
+Instruction <|-- BooleanAppend
+BooleanAppend::Input --> BooleanExpression
+BooleanAppend::Output --> BooleanRangeRegister
+Instruction <|-- NumericAppend
+NumericAppend::Input --> NumericExpression
+NumericAppend::Output --> NumericRangeRegister
+Instruction <|-- ComplexAppend
+ComplexAppend::Input --> ComplexExpression
+ComplexAppend::Output --> ComplexRangeRegister
+Instruction <|-- FilterOutput
+FilterOutput::Port --> Port
+FilterOutput::Scope --> Block
+FilterOutput::IirFilters --> IirFilter
+FilterOutput::FirFilter --> FirFilter
+Instruction <|-- ShiftFramePhase
+ShiftFramePhase::Frame --> Frame
+ShiftFramePhase::AdditionalPhase --> Angle
+Instruction <|-- Delay
+Delay::Duration --> Interval
+Instruction <|-- ComplexRangeAssign
+ComplexRangeAssign::Input --> ComplexRangeExpression
+ComplexRangeAssign::Output --> ComplexRangeRegister
+Block::Instructions --> Instruction
+Instruction <|-- DcBias
+DcBias::Port --> Port
+DcBias::Amplitude --> Amplitude
+ComplexExpression <|-- ComplexRangeElement
+ComplexRangeElement::Source --> ComplexRangeExpression
+ComplexRangeElement::Index --> NumericExpression
+ComplexRangeExpression <|-- LiteralComplexRange
+ComplexRangeExpression <|-- ComplexRangeRegister
+ComplexRangeExpression <|-- AcquisitionComplexRangeResult
+ComplexRangeExpression <|-- ComplexAverageOver
+ComplexAverageOver::Source --> ComplexRangeExpression
+ComplexRangeExpression <|-- Demodulation
+Demodulation::Frame --> Frame
+Demodulation::Trace --> AcquisitionComplexRangeResult
+NumericRangeExpression <|-- NumericAverageOver
+NumericAverageOver::Source --> NumericRangeExpression
+NumericExpression <|-- NumericRangeElement
+NumericRangeElement::Source --> NumericRangeExpression
+NumericRangeElement::Index --> NumericExpression
+NumericRangeExpression <|-- SteppedRange
+SteppedRange::InclusiveStart --> NumericExpression
+SteppedRange::Step --> NumericExpression
+SteppedRange::ExclusiveEnd --> NumericExpression
+NumericRangeExpression <|-- NumericRangeRegister
+Instruction <|-- ForEachNumeric
+ForEachNumeric::Source --> NumericRangeExpression
+ForEachNumeric::Relationship --> InstructionRelationship
+ForEachNumeric::Body --> NumericToBlockFunction
+NumericRangeExpression <|-- LiteralNumericRange
+BooleanExpression <|-- BooleanRangeElement
+BooleanRangeElement::Source --> BooleanRangeExpression
+BooleanRangeElement::Index --> NumericExpression
+BooleanRangeExpression <|-- BooleanRangeRegister
+NumericExpression <|-- ComplexRealValue
+ComplexRealValue::Operand --> ComplexExpression
+NumericExpression <|-- ComplexImaginaryValue
+ComplexImaginaryValue::Operand --> ComplexExpression
+ComplexExpression <|-- BinaryComplexOperation
+BinaryComplexOperation::Operator --> BinaryComplexOperators
+BinaryComplexOperation::Lhs --> ComplexExpression
+BinaryComplexOperation::Rhs --> ComplexExpression
+ComplexExpression <|-- ComplexConditional
+ComplexConditional::Guard --> BooleanExpression
+ComplexConditional::TrueCase --> ComplexExpression
+ComplexConditional::FalseCase --> ComplexExpression
+ComplexExpression <|-- ComplexDotProduct
+ComplexDotProduct::Lhs --> ComplexRangeExpression
+ComplexDotProduct::Rhs --> ComplexRangeExpression
+NumericExpression <|-- NumericConditional
+NumericConditional::Guard --> BooleanExpression
+NumericConditional::TrueCase --> NumericExpression
+NumericConditional::FalseCase --> NumericExpression
+NumericExpression <|-- NumericLiteral
+NumericExpression <|-- BinaryNumericOperation
+BinaryNumericOperation::Operator --> BinaryNumericOperators
+BinaryNumericOperation::Lhs --> NumericExpression
+BinaryNumericOperation::Rhs --> NumericExpression
+BooleanExpression <|-- BooleanConditional
+BooleanConditional::Guard --> BooleanExpression
+BooleanConditional::TrueCase --> BooleanExpression
+BooleanConditional::FalseCase --> BooleanExpression
+BooleanExpression <|-- ComparisonOperation
+ComparisonOperation::Operator --> ComparisonOperators
+ComparisonOperation::Lhs --> NumericExpression
+ComparisonOperation::Rhs --> NumericExpression
+@enduml

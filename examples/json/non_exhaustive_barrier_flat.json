@@ -1,0 +1,265 @@
+{
+    "version": "0.1.0",
+    "compatible_version": "0.1.0",
+    "frames": {
+        "Frame1": {
+            "port": {
+                "id": {
+                    "$type": "NumericLiteral",
+                    "value": 1
+                }
+            },
+            "frequency": {
+                "$type": "NumericLiteral",
+                "value": 5000000000
+            },
+            "phase": {
+                "$type": "NumericLiteral",
+                "value": 0
+            },
+            "intermediate_frequency": {
+                "$type": "NumericLiteral",
+                "value": 10000000
+            }
+        },
+        "Frame2": {
+            "port": {
+                "id": {
+                    "$type": "NumericLiteral",
+                    "value": 2
+                }
+            },
+            "frequency": {
+                "$type": "NumericLiteral",
+                "value": 5000000000
+            },
+            "phase": {
+                "$type": "NumericLiteral",
+                "value": 0
+            },
+            "intermediate_frequency": {
+                "$type": "NumericLiteral",
+                "value": 10000000
+            }
+        },
+        "Frame3": {
+            "port": {
+                "id": {
+                    "$type": "NumericLiteral",
+                    "value": 3
+                }
+            },
+            "frequency": {
+                "$type": "NumericLiteral",
+                "value": 5000000000
+            },
+            "phase": {
+                "$type": "NumericLiteral",
+                "value": 0
+            },
+            "intermediate_frequency": {
+                "$type": "NumericLiteral",
+                "value": 10000000
+            }
+        }
+    },
+    "waveforms": {
+        "Waveform1": {
+            "$type": "ConstantWaveform",
+            "duration": {
+                "$type": "NumericLiteral",
+                "value": 1E-07
+            }
+        },
+        "Waveform2": {
+            "$type": "ConstantWaveform",
+            "duration": {
+                "$type": "NumericLiteral",
+                "value": 1.5E-07
+            }
+        },
+        "Waveform3": {
+            "$type": "ConstantWaveform",
+            "duration": {
+                "$type": "NumericLiteral",
+                "value": 5E-08
+            }
+        }
+    },
+    "instructions": {
+        "Instruction2": {
+            "$type": "ModulatedPulse",
+            "frame": {
+                "$ref": "Frame1"
+            },
+            "envelope": {
+                "$ref": "Waveform1"
+            },
+            "phase_offset": {
+                "$type": "NumericLiteral",
+                "value": 1
+            },
+            "amplitude": {
+                "$type": "NumericLiteral",
+                "value": 1
+            }
+        },
+        "Instruction3": {
+            "$type": "ModulatedPulse",
+            "frame": {
+                "$ref": "Frame1"
+            },
+            "envelope": {
+                "$ref": "Waveform1"
+            },
+            "phase_offset": {
+                "$type": "NumericLiteral",
+                "value": 1
+            },
+            "amplitude": {
+                "$type": "NumericLiteral",
+                "value": 1
+            }
+        },
+        "Instruction5": {
+            "$type": "ModulatedPulse",
+            "frame": {
+                "$ref": "Frame2"
+            },
+            "envelope": {
+                "$ref": "Waveform2"
+            },
+            "phase_offset": {
+                "$type": "NumericLiteral",
+                "value": 2
+            },
+            "amplitude": {
+                "$type": "NumericLiteral",
+                "value": 1
+            }
+        },
+        "Instruction6": {
+            "$type": "ModulatedPulse",
+            "frame": {
+                "$ref": "Frame2"
+            },
+            "envelope": {
+                "$ref": "Waveform2"
+            },
+            "phase_offset": {
+                "$type": "NumericLiteral",
+                "value": 2
+            },
+            "amplitude": {
+                "$type": "NumericLiteral",
+                "value": 1
+            }
+        },
+        "Instruction8": {
+            "$type": "ModulatedPulse",
+            "frame": {
+                "$ref": "Frame3"
+            },
+            "envelope": {
+                "$ref": "Waveform3"
+            },
+            "phase_offset": {
+                "$type": "NumericLiteral",
+                "value": 3
+            },
+            "amplitude": {
+                "$type": "NumericLiteral",
+                "value": 1
+            }
+        },
+        "Instruction9": {
+            "$type": "ModulatedPulse",
+            "frame": {
+                "$ref": "Frame3"
+            },
+            "envelope": {
+                "$ref": "Waveform3"
+            },
+            "phase_offset": {
+                "$type": "NumericLiteral",
+                "value": 3
+            },
+            "amplitude": {
+                "$type": "NumericLiteral",
+                "value": 1
+            }
+        }
+    },
+    "entry_point": [
+        {
+            "$type": "Dependency",
+            "relationship": {},
+            "lhs": {
+                "$ref": "Instruction2"
+            },
+            "rhs": {
+                "$ref": "Instruction3"
+            }
+        },
+        {
+            "$type": "Dependency",
+            "relationship": {},
+            "lhs": {
+                "$ref": "Instruction5"
+            },
+            "rhs": {
+                "$ref": "Instruction6"
+            }
+        },
+        {
+            "$type": "Dependency",
+            "relationship": {},
+            "lhs": {
+                "$ref": "Instruction8"
+            },
+            "rhs": {
+                "$ref": "Instruction9"
+            }
+        },
+        {
+            "$type": "Dependency",
+            "relationship": {},
+            "lhs": {
+                "$ref": "Instruction2"
+            },
+            "rhs": {
+                "$ref": "Instruction6"
+            }
+        },
+        {
+            "$type": "Dependency",
+            "relationship": {},
+            "lhs": {
+                "$ref": "Instruction5"
+            },
+            "rhs": {
+                "$ref": "Instruction3"
+            }
+        },
+        {
+            "$type": "Dependency",
+            "relationship": {},
+            "lhs": {
+                "$ref": "Instruction2"
+            },
+            "rhs": {
+                "$ref": "Instruction9"
+            }
+        },
+        {
+            "$type": "Dependency",
+            "relationship": {},
+            "lhs": {
+                "$ref": "Instruction8"
+            },
+            "rhs": {
+                "$ref": "Instruction3"
+            }
+        }
+    ]
+}

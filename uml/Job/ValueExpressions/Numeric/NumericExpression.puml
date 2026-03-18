@@ -1,0 +1,6 @@
+@startuml
+package "TreQ.TIL.ValueExpressions.Numeric" {
+    abstract class NumericExpression  {
+    }
+}
+@enduml

@@ -1,0 +1,8 @@
+@startuml
+package "TreQ.TIL.Timing" {
+    enum Alignment {
+        EndToStart,
+        StartToStart,
+    }
+}
+@enduml

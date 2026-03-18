@@ -1,0 +1,58 @@
+graph TD
+    Frame1["Frame"]
+    Interval1["50 ns"]
+    Waveform1["ConstantWaveform"]
+    Waveform1 -- "Duration" --- Interval1
+    Instruction3["ModulatedPulse"]
+    Instruction3 -- "Frame" --- Frame1
+    Instruction3 -- "Envelope" --- Waveform1
+    Radians2["1 rad"]
+    Instruction3 -- "PhaseOffset" --- Radians2
+    Instruction4["ModulatedPulse"]
+    Instruction4 -- "Frame" --- Frame1
+    Instruction4 -- "Envelope" --- Waveform1
+    Radians3["2 rad"]
+    Instruction4 -- "PhaseOffset" --- Radians3
+    Instruction5:Alignment["StartToStart"]
+    Instruction5:Relationship["InstructionRelationship"]
+    Instruction5:Relationship -- "Alignment" --- Instruction5:Alignment
+    Instruction5["Dependency"]
+    Instruction5 -- "Relationship" --- Instruction5:Relationship
+    Instruction5 -- "Lhs" --- Instruction3
+    Instruction5 -- "Rhs" --- Instruction4
+    Instruction8["ModulatedPulse"]
+    Instruction8 -- "Frame" --- Frame1
+    Instruction8 -- "Envelope" --- Waveform1
+    Radians4["3 rad"]
+    Instruction8 -- "PhaseOffset" --- Radians4
+    Instruction9["ModulatedPulse"]
+    Instruction9 -- "Frame" --- Frame1
+    Instruction9 -- "Envelope" --- Waveform1
+    Radians5["4 rad"]
+    Instruction9 -- "PhaseOffset" --- Radians5
+    Instruction10:Alignment["StartToStart"]
+    Instruction10:Relationship["InstructionRelationship"]
+    Instruction10:Relationship -- "Alignment" --- Instruction10:Alignment
+    Instruction10["Dependency"]
+    Instruction10 -- "Relationship" --- Instruction10:Relationship
+    Instruction10 -- "Lhs" --- Instruction8
+    Instruction10 -- "Rhs" --- Instruction9
+    Instruction11["ModulatedPulse"]
+    Instruction11 -- "Frame" --- Frame1
+    Instruction11 -- "Envelope" --- Waveform1
+    Radians6["5 rad"]
+    Instruction11 -- "PhaseOffset" --- Radians6
+    Instruction12:Alignment["StartToStart"]
+    Instruction12:Relationship["InstructionRelationship"]
+    Instruction12:Relationship -- "Alignment" --- Instruction12:Alignment
+    Instruction12["Dependency"]
+    Instruction12 -- "Relationship" --- Instruction12:Relationship
+    Instruction12 -- "Lhs" --- Instruction10
+    Instruction12 -- "Rhs" --- Instruction11
+    Instruction13:Alignment["EndToStart"]
+    Instruction13:Relationship["InstructionRelationship"]
+    Instruction13:Relationship -- "Alignment" --- Instruction13:Alignment
+    Instruction13["Dependency"]
+    Instruction13 -- "Relationship" --- Instruction13:Relationship
+    Instruction13 -- "Lhs" --- Instruction5
+    Instruction13 -- "Rhs" --- Instruction12

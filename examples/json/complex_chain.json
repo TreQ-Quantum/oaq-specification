@@ -1,0 +1,136 @@
+{
+    "version": "0.1.0",
+    "compatible_version": "0.1.0",
+    "frames": {
+        "Frame1": {
+            "port": {
+                "id": {
+                    "$type": "NumericLiteral",
+                    "value": 100
+                }
+            },
+            "frequency": {
+                "$type": "NumericLiteral",
+                "value": 5000000000
+            },
+            "phase": {
+                "$type": "NumericLiteral",
+                "value": 0
+            },
+            "intermediate_frequency": {
+                "$type": "NumericLiteral",
+                "value": 10000000
+            }
+        }
+    },
+    "waveforms": {
+        "Waveform1": {
+            "$type": "ConstantWaveform",
+            "duration": {
+                "$type": "NumericLiteral",
+                "value": 5E-08
+            }
+        }
+    },
+    "entry_point": [
+        {
+            "$type": "Dependency",
+            "relationship": {},
+            "lhs": {
+                "$type": "ModulatedPulse",
+                "frame": {
+                    "$ref": "Frame1"
+                },
+                "envelope": {
+                    "$ref": "Waveform1"
+                },
+                "phase_offset": {
+                    "$type": "NumericLiteral",
+                    "value": 1
+                },
+                "amplitude": {
+                    "$type": "NumericLiteral",
+                    "value": 1
+                }
+            },
+            "rhs": {
+                "$type": "Dependency",
+                "relationship": {},
+                "lhs": {
+                    "$type": "Dependency",
+                    "relationship": {
+                        "alignment": "StartToStart"
+                    },
+                    "lhs": {
+                        "$type": "ModulatedPulse",
+                        "frame": {
+                            "$ref": "Frame1"
+                        },
+                        "envelope": {
+                            "$ref": "Waveform1"
+                        },
+                        "phase_offset": {
+                            "$type": "NumericLiteral",
+                            "value": 2
+                        },
+                        "amplitude": {
+                            "$type": "NumericLiteral",
+                            "value": 1
+                        }
+                    },
+                    "rhs": {
+                        "$type": "ModulatedPulse",
+                        "frame": {
+                            "port": {
+                                "id": {
+                                    "$type": "NumericLiteral",
+                                    "value": 200
+                                }
+                            },
+                            "frequency": {
+                                "$type": "NumericLiteral",
+                                "value": 7000000000
+                            },
+                            "phase": {
+                                "$type": "NumericLiteral",
+                                "value": 0
+                            },
+                            "intermediate_frequency": {
+                                "$type": "NumericLiteral",
+                                "value": 20000000
+                            }
+                        },
+                        "envelope": {
+                            "$ref": "Waveform1"
+                        },
+                        "phase_offset": {
+                            "$type": "NumericLiteral",
+                            "value": 3
+                        },
+                        "amplitude": {
+                            "$type": "NumericLiteral",
+                            "value": 1
+                        }
+                    }
+                },
+                "rhs": {
+                    "$type": "ModulatedPulse",
+                    "frame": {
+                        "$ref": "Frame1"
+                    },
+                    "envelope": {
+                        "$ref": "Waveform1"
+                    },
+                    "phase_offset": {
+                        "$type": "NumericLiteral",
+                        "value": 4
+                    },
+                    "amplitude": {
+                        "$type": "NumericLiteral",
+                        "value": 1
+                    }
+                }
+            }
+        }
+    ]
+}

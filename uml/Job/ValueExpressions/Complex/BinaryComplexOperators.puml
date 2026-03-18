@@ -1,0 +1,9 @@
+@startuml
+package "TreQ.TIL.ValueExpressions.Complex" {
+    enum BinaryComplexOperators {
+        Add,
+        Subtract,
+        Multiply,
+    }
+}
+@enduml

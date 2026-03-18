@@ -1,0 +1,109 @@
+graph TD
+    NumericExpression1["200"]
+    Port1["Port"]
+    Port1 -- "Id" --- NumericExpression1
+    Frequency1["7 GHz"]
+    Radians2["0 rad"]
+    Frequency3["20 MHz"]
+    Frame1["Frame"]
+    Frame1 -- "Port" --- Port1
+    Frame1 -- "Frequency" --- Frequency1
+    Frame1 -- "Phase" --- Radians2
+    Frame1 -- "IntermediateFrequency" --- Frequency3
+    Interval4["750 ns"]
+    Waveform1["ConstantWaveform"]
+    Waveform1 -- "Duration" --- Interval4
+    Instruction4["ModulatedPulse"]
+    Instruction4 -- "Frame" --- Frame1
+    Instruction4 -- "Envelope" --- Waveform1
+    NumericExpression2["0.2"]
+    Amplitude5["Amplitude"]
+    Amplitude5 -- "Value" --- NumericExpression2
+    Instruction4 -- "Amplitude" --- Amplitude5
+    Frequency6["7.1 GHz"]
+    Radians7["0 rad"]
+    Frequency8["120 MHz"]
+    Frame2["Frame"]
+    Frame2 -- "Port" --- Port1
+    Frame2 -- "Frequency" --- Frequency6
+    Frame2 -- "Phase" --- Radians7
+    Frame2 -- "IntermediateFrequency" --- Frequency8
+    Interval9["1 μs"]
+    Waveform2["ConstantWaveform"]
+    Waveform2 -- "Duration" --- Interval9
+    Instruction5["ModulatedPulse"]
+    Instruction5 -- "Frame" --- Frame2
+    Instruction5 -- "Envelope" --- Waveform2
+    NumericExpression3["0.2"]
+    Amplitude10["Amplitude"]
+    Amplitude10 -- "Value" --- NumericExpression3
+    Instruction5 -- "Amplitude" --- Amplitude10
+    Instruction6:Alignment["StartToStart"]
+    Instruction6:Relationship["InstructionRelationship"]
+    Instruction6:Relationship -- "Alignment" --- Instruction6:Alignment
+    Instruction6["Dependency"]
+    Instruction6 -- "Relationship" --- Instruction6:Relationship
+    Instruction6 -- "Lhs" --- Instruction4
+    Instruction6 -- "Rhs" --- Instruction5
+    NumericExpression4["300"]
+    Port2["Port"]
+    Port2 -- "Id" --- NumericExpression4
+    Interval11["1 μs"]
+    ComplexRangeExpression1["AcquisitionComplexRangeResult"]
+    Instruction7["AdcAcquisition"]
+    Instruction7 -- "Port" --- Port2
+    Instruction7 -- "Duration" --- Interval11
+    Instruction7 -- "Result" --- ComplexRangeExpression1
+    Instruction8:Alignment["StartToStart"]
+    Instruction8:Relationship["InstructionRelationship"]
+    Instruction8:Relationship -- "Alignment" --- Instruction8:Alignment
+    Instruction8["Dependency"]
+    Instruction8 -- "Relationship" --- Instruction8:Relationship
+    Instruction8 -- "Lhs" --- Instruction6
+    Instruction8 -- "Rhs" --- Instruction7
+    ComplexRangeExpression2["Demodulation"]
+    ComplexRangeExpression2 -- "Frame" --- Frame1
+    ComplexRangeExpression2 -- "Trace" --- ComplexRangeExpression1
+    ComplexRangeExpression3:Values["(0, 0), (1, 2), (3, 4)"]
+    ComplexRangeExpression3["LiteralComplexRange"]
+    ComplexRangeExpression3 -- "Values" --- ComplexRangeExpression3:Values
+    ComplexExpression1["ComplexDotProduct"]
+    ComplexExpression1 -- "Lhs" --- ComplexRangeExpression2
+    ComplexExpression1 -- "Rhs" --- ComplexRangeExpression3
+    ComplexRangeRegister1["ComplexRangeRegister"]
+    Instruction10["ComplexAppend"]
+    Instruction10 -- "Input" --- ComplexExpression1
+    Instruction10 -- "Output" --- ComplexRangeRegister1
+    ComplexRangeExpression4["Demodulation"]
+    ComplexRangeExpression4 -- "Frame" --- Frame2
+    ComplexRangeExpression4 -- "Trace" --- ComplexRangeExpression1
+    ComplexRangeExpression5:Values["(0, 0), (1, 2), (3, 4)"]
+    ComplexRangeExpression5["LiteralComplexRange"]
+    ComplexRangeExpression5 -- "Values" --- ComplexRangeExpression5:Values
+    ComplexExpression2["ComplexDotProduct"]
+    ComplexExpression2 -- "Lhs" --- ComplexRangeExpression4
+    ComplexExpression2 -- "Rhs" --- ComplexRangeExpression5
+    ComplexRangeRegister2["ComplexRangeRegister"]
+    Instruction11["ComplexAppend"]
+    Instruction11 -- "Input" --- ComplexExpression2
+    Instruction11 -- "Output" --- ComplexRangeRegister2
+    Instruction12:Alignment["StartToStart"]
+    Instruction12:Relationship["InstructionRelationship"]
+    Instruction12:Relationship -- "Alignment" --- Instruction12:Alignment
+    Instruction12["Dependency"]
+    Instruction12 -- "Relationship" --- Instruction12:Relationship
+    Instruction12 -- "Lhs" --- Instruction10
+    Instruction12 -- "Rhs" --- Instruction11
+    Instruction13:Alignment["EndToStart"]
+    Instruction13:Relationship["InstructionRelationship"]
+    Instruction13:Relationship -- "Alignment" --- Instruction13:Alignment
+    Instruction13["Dependency"]
+    Instruction13 -- "Relationship" --- Instruction13:Relationship
+    Instruction13 -- "Lhs" --- Instruction8
+    Instruction13 -- "Rhs" --- Instruction12
+    Job:ComplexRangeOutputs["ComplexRangeOutputs"]
+    Job:ComplexRangeOutputs -- "0" --- ComplexRangeRegister1
+    Job:ComplexRangeOutputs -- "1" --- ComplexRangeRegister2
+    Job["Job"]
+    Job -- "EntryPoint1" --- Instruction13
+    Job -- "ComplexRangeOutputs" --- Job:ComplexRangeOutputs

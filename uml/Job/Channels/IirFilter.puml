@@ -1,0 +1,8 @@
+@startuml
+package "TreQ.TIL.Channels" {
+    class IirFilter  {
+        + Amplitude : Amplitude 
+        + TimeConstant : Interval 
+    }
+}
+@enduml

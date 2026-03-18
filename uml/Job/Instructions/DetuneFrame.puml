@@ -1,0 +1,10 @@
+@startuml
+package "TreQ.TIL.Instructions" {
+    class DetuneFrame  {
+        + Frame : Frame 
+        + Detuning : Frequency 
+        + Scope : Block 
+        + PhaseReference : PhaseReferencePoints
+    }
+}
+@enduml

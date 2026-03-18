@@ -1,0 +1,10 @@
+@startuml
+package "TreQ.TIL" {
+    class Job  {
+        + EntryPoint : Block 
+        + BooleanRangeOutputs : Dictionary<string, BooleanRangeRegister> 
+        + NumericRangeOutputs : Dictionary<string, NumericRangeRegister> 
+        + ComplexRangeOutputs : Dictionary<string, ComplexRangeRegister> 
+    }
+}
+@enduml

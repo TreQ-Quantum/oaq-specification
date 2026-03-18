@@ -1,0 +1,10 @@
+@startuml
+package "TreQ.TIL.Instructions" {
+    class ModulatedPulse  {
+        + Frame : Frame 
+        + Envelope : Waveform 
+        + PhaseOffset : Angle 
+        + Amplitude : Amplitude 
+    }
+}
+@enduml

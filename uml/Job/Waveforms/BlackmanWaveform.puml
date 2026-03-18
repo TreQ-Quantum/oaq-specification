@@ -1,0 +1,7 @@
+@startuml
+package "TreQ.TIL.Waveforms" {
+    class BlackmanWaveform  {
+        + Duration : Interval 
+    }
+}
+@enduml

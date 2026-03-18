@@ -1,0 +1,9 @@
+@startuml
+package "TreQ.TIL.RangeExpressions.Complex" {
+    class ComplexAverageOver  {
+        + Source : ComplexRangeExpression 
+        + BufferDimensions : int[] 
+        + AveragingAxis : int 
+    }
+}
+@enduml

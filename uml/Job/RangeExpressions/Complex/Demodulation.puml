@@ -1,0 +1,8 @@
+@startuml
+package "TreQ.TIL.RangeExpressions.Complex" {
+    class Demodulation  {
+        + Frame : Frame 
+        + Trace : AcquisitionComplexRangeResult 
+    }
+}
+@enduml

@@ -1,0 +1,9 @@
+@startuml
+package "TreQ.TIL.ValueExpressions.Boolean" {
+    class ComparisonOperation  {
+        + Operator : ComparisonOperators 
+        + Lhs : NumericExpression 
+        + Rhs : NumericExpression 
+    }
+}
+@enduml

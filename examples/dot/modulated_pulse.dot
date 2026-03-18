@@ -1,0 +1,26 @@
+strict digraph "" {
+    node [label="\N"];
+    "NumericExpression1" [label="100", shape=box];
+    "Port1" [label="Port", shape=box];
+    "Port1" -> "NumericExpression1"  [label="Id", style=dashed];
+    "Frequency1" [label="5 GHz", shape=box];
+    "Radians2" [label="0 rad", shape=box];
+    "Frequency3" [label="10 MHz", shape=box];
+    "Frame1" [label="Frame", shape=box];
+    "Frame1" -> "Port1"  [label="Port", style=dashed];
+    "Frame1" -> "Frequency1"  [label="Frequency", style=dashed];
+    "Frame1" -> "Radians2"  [label="Phase", style=dashed];
+    "Frame1" -> "Frequency3"  [label="IntermediateFrequency", style=dashed];
+    "Interval4" [label="100 ns", shape=box];
+    "Waveform1" [label="ConstantWaveform", shape=box];
+    "Waveform1" -> "Interval4"  [label="Duration", style=dashed];
+    "Instruction1" [label="ModulatedPulse", shape=box];
+    "Instruction1" -> "Frame1"  [label="Frame", style=dashed];
+    "Instruction1" -> "Waveform1"  [label="Envelope", style=dashed];
+    "NumericExpression2" [label="0.5", shape=box];
+    "Amplitude5" [label="Amplitude", shape=box];
+    "Amplitude5" -> "NumericExpression2"  [label="Value", style=dashed];
+    "Instruction1" -> "Amplitude5"  [label="Amplitude", style=dashed];
+    "Job" [label="Job", shape=box];
+    "Job" -> "Instruction1"  [label="EntryPoint1", style=dashed];
+}

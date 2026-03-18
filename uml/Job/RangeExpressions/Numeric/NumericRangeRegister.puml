@@ -1,0 +1,6 @@
+@startuml
+package "TreQ.TIL.RangeExpressions.Numeric" {
+    class NumericRangeRegister  {
+    }
+}
+@enduml

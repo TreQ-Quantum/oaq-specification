@@ -1,0 +1,8 @@
+@startuml
+package "TreQ.TIL.Instructions" {
+    class ShiftFramePhase  {
+        + Frame : Frame 
+        + AdditionalPhase : Angle 
+    }
+}
+@enduml

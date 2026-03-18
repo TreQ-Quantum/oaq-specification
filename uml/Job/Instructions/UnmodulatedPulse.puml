@@ -1,0 +1,9 @@
+@startuml
+package "TreQ.TIL.Instructions" {
+    class UnmodulatedPulse  {
+        + Port : Port 
+        + Envelope : Waveform 
+        + Amplitude : Amplitude 
+    }
+}
+@enduml

@@ -1,0 +1,10 @@
+@startuml
+package "TreQ.TIL.Channels" {
+    class Frame  {
+        + Port : Port 
+        + Frequency : Frequency 
+        + Phase : Angle 
+        + IntermediateFrequency : Frequency?  = null
+    }
+}
+@enduml

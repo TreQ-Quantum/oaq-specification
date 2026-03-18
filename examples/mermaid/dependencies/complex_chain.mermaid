@@ -1,0 +1,47 @@
+graph TD
+    Frame1["Frame"]
+    Interval1["50 ns"]
+    Waveform1["ConstantWaveform"]
+    Waveform1 -- "Duration" --- Interval1
+    Instruction2["ModulatedPulse"]
+    Instruction2 -- "Frame" --- Frame1
+    Instruction2 -- "Envelope" --- Waveform1
+    Radians2["1 rad"]
+    Instruction2 -- "PhaseOffset" --- Radians2
+    Instruction5["ModulatedPulse"]
+    Instruction5 -- "Frame" --- Frame1
+    Instruction5 -- "Envelope" --- Waveform1
+    Radians3["2 rad"]
+    Instruction5 -- "PhaseOffset" --- Radians3
+    Frame2["Frame"]
+    Instruction6["ModulatedPulse"]
+    Instruction6 -- "Frame" --- Frame2
+    Instruction6 -- "Envelope" --- Waveform1
+    Radians4["3 rad"]
+    Instruction6 -- "PhaseOffset" --- Radians4
+    Instruction7:Alignment["StartToStart"]
+    Instruction7:Relationship["InstructionRelationship"]
+    Instruction7:Relationship -- "Alignment" --- Instruction7:Alignment
+    Instruction7["Dependency"]
+    Instruction7 -- "Relationship" --- Instruction7:Relationship
+    Instruction7 -- "Lhs" --- Instruction5
+    Instruction7 -- "Rhs" --- Instruction6
+    Instruction8["ModulatedPulse"]
+    Instruction8 -- "Frame" --- Frame1
+    Instruction8 -- "Envelope" --- Waveform1
+    Radians5["4 rad"]
+    Instruction8 -- "PhaseOffset" --- Radians5
+    Instruction9:Alignment["EndToStart"]
+    Instruction9:Relationship["InstructionRelationship"]
+    Instruction9:Relationship -- "Alignment" --- Instruction9:Alignment
+    Instruction9["Dependency"]
+    Instruction9 -- "Relationship" --- Instruction9:Relationship
+    Instruction9 -- "Lhs" --- Instruction7
+    Instruction9 -- "Rhs" --- Instruction8
+    Instruction10:Alignment["EndToStart"]
+    Instruction10:Relationship["InstructionRelationship"]
+    Instruction10:Relationship -- "Alignment" --- Instruction10:Alignment
+    Instruction10["Dependency"]
+    Instruction10 -- "Relationship" --- Instruction10:Relationship
+    Instruction10 -- "Lhs" --- Instruction2
+    Instruction10 -- "Rhs" --- Instruction9

@@ -1,0 +1,8 @@
+@startuml
+package "TreQ.TIL.ValueExpressions.Complex" {
+    class ComplexDotProduct  {
+        + Lhs : ComplexRangeExpression 
+        + Rhs : ComplexRangeExpression 
+    }
+}
+@enduml

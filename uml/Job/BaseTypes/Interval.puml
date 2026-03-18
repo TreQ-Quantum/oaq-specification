@@ -1,0 +1,7 @@
+@startuml
+package "TreQ.TIL.BaseTypes" {
+    class Interval {
+        + Seconds : NumericExpression 
+    }
+}
+@enduml
